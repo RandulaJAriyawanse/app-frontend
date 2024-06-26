@@ -7,9 +7,11 @@ axios.defaults.withCredentials = true;
 const apiUrl = process.env.REACT_APP_API_URL;
 
 const authStore = createStore((set, get) => ({
-    access: localStorage.getItem('access'),
-    isAuthenticated: Boolean(localStorage.getItem('access')),
-    user: null,
+    // access: localStorage.getItem('access'),
+    // isAuthenticated: Boolean(localStorage.getItem('access')),
+    access: "test_access",
+    isAuthenticated: true,
+    user: "test_user",
     // user: JSON.parse(localStorage.getItem('user')) || null,
     message: "",
     isLoading: false,
@@ -90,59 +92,59 @@ const authStore = createStore((set, get) => ({
 
     verify: async () => {
         log("Verify function called")
-        const access = localStorage.getItem('access');
-        if (access) {
-            const config = {
-                headers: { "Content-Type": "application/json" }
-            };
-            const body = JSON.stringify({ token: access });
+        // const access = localStorage.getItem('access');
+        // if (access) {
+        //     const config = {
+        //         headers: { "Content-Type": "application/json" }
+        //     };
+        //     const body = JSON.stringify({ token: access });
 
-            try {
-                await axios.post(`${apiUrl}/dj-rest-auth/token/verify/`, body, config);
-                set({ isAuthenticated: true });
-                log("Verify success")
-            } catch (err) {
-                log("Verify error: ", err.response.data)
-                await get().refresh(); 
-            }
-        } else {
-            set({ isAuthenticated: false });
-        }
+        //     try {
+        //         await axios.post(`${apiUrl}/dj-rest-auth/token/verify/`, body, config);
+        //         set({ isAuthenticated: true });
+        //         log("Verify success")
+        //     } catch (err) {
+        //         log("Verify error: ", err.response.data)
+        //         await get().refresh(); 
+        //     }
+        // } else {
+        //     set({ isAuthenticated: false });
+        // }
     },
 
     getUser: async () => {
-        const access = localStorage.getItem('access');
-        if (access) {
-            const config = {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${access}`
-                }
-            };
-            try {
-                const res = await axios.get(`${apiUrl}/dj-rest-auth/user/`, config);
-                set({ user: res.data });
-            } catch (err) {
-                set({ user: null });
-            }
-        }
+        // const access = localStorage.getItem('access');
+        // if (access) {
+        //     const config = {
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //             "Authorization": `Bearer ${access}`
+        //         }
+        //     };
+        //     try {
+        //         const res = await axios.get(`${apiUrl}/dj-rest-auth/user/`, config);
+        //         set({ user: res.data });
+        //     } catch (err) {
+        //         set({ user: null });
+        //     }
+        // }
     },
 
     refresh: async () => {
         log("Refresh function called")
-        const config = {
-            headers: { "Content-Type": "application/json" }
-        };
-        try {
-            const res = await axios.post(`${apiUrl}/dj-rest-auth/token/refresh/`, config);
-            localStorage.setItem('access', res.data.access);
-            set({ isAuthenticated: true, access: res.data.access });
-            log("Refresh success")
-        } catch (err) {
-            log("Refresh error: ", err.response.data)
-            localStorage.removeItem('access');
-            set({ isAuthenticated: false, access: null, user: null });
-        }
+        // const config = {
+        //     headers: { "Content-Type": "application/json" }
+        // };
+        // try {
+        //     const res = await axios.post(`${apiUrl}/dj-rest-auth/token/refresh/`, config);
+        //     localStorage.setItem('access', res.data.access);
+        //     set({ isAuthenticated: true, access: res.data.access });
+        //     log("Refresh success")
+        // } catch (err) {
+        //     log("Refresh error: ", err.response.data)
+        //     localStorage.removeItem('access');
+        //     set({ isAuthenticated: false, access: null, user: null });
+        // }
     },
 
     logout: async () => {
