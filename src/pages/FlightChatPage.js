@@ -52,7 +52,7 @@ const FlightChatPage = () => {
         style={{ maxHeight: "calc(100vh - 50px)" }}
       >
         <Card
-          className="flex flex-1 items-center my-7 ml-7 font-body bg-base-100"
+          className="rounded-lg flex flex-1 items-center my-7 ml-7 font-body bg-base-100"
           style={{ maxWidth: "42%" }}
         >
           <MdViewer />
@@ -62,8 +62,8 @@ const FlightChatPage = () => {
           style={{ width: "58%" }}
         >
           <Card
-            className="flex flex-1 flex-col m-7 font-body bg-base-100"
-            style={{ maxHeight: "calc(45% - 75px)" }}
+            className="rounded-lg flex flex-1 flex-col m-7 font-body bg-base-100"
+            style={{ maxHeight: "calc(50% - 75px)" }}
           >
             <FlightsDataGrid />
           </Card>
