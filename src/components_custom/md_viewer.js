@@ -33,7 +33,14 @@ const MdViewer = () => {
             <ScrollArea 
             className='prose lg:prose-xl flex-grow overflow-auto w-full h-full pl-4 pr-4' 
             >
-                <ReactMarkdown
+                <div className="terms-container" dangerouslySetInnerHTML={{ __html: htmlpage }}   style={{
+                    fontSize: '16px', // Smaller font size
+                    lineHeight: '1.6', // Improves readability
+                    color: '#333', // Text color
+                    overflowY: 'auto', // Adds scrolling
+                    padding: '20px' // Adds padding inside the container
+                }}/>
+                {/* <ReactMarkdown
                         components={{
                             h1: ({ node, ...props }) => <Typography variant="h4" {...props} />,
                             h2: ({ node, ...props }) => <Typography variant="h5" {...props} />,
@@ -44,7 +51,7 @@ const MdViewer = () => {
                             ul: ({ node, ...props }) => <Typography component="ul" {...props} />,
                             ol: ({ node, ...props }) => <Typography component="ol" {...props} />,
                         }}
-                >{markdown}</ReactMarkdown>
+                >{markdown}</ReactMarkdown> */}
             </ScrollArea>
         </div>
     );
