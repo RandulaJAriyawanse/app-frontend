@@ -82,8 +82,8 @@ function FlightsDataGrid() {
       <div className="pl-4 pr-3 pt-2 flex justify-between">
         <span className="pt-3 font-medium text-gray-900">Database</span>
         <div style={{ display: "flex", justifyContent: "end" }} className="p-2">
-          <Box sx={{ minWidth: 100 }}>
-            <FormControl sx={{ minWidth: 100 }} size="small">
+          <Box sx={{ minWidth: 110 }}>
+            <FormControl sx={{ minWidth: 110 }} size="small">
               <InputLabel id="demo-simple-select-label" size="small">
                 Table
               </InputLabel>
