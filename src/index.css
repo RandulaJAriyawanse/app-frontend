@@ -92,6 +92,45 @@ h1 {
 p {
   font-size: 0.85rem;
 }
+.MuiDataGrid-root {
+  border: none !important;
+}
+.MuiDataGrid-columnHeader {
+  background-color: #f2f5f8 !important;
+  border: none !important;
+}
+.MuiDataGrid-columnHeader {
+  height: 36px !important;
+  min-height: 36px !important;
+}
+.MuiDataGrid-virtualScrollerRenderZone
+  .MuiDataGrid-row:nth-child(1)
+  .MuiDataGrid-cell {
+  border: none;
+}
+.MuiDataGrid-cell {
+  align-items: center;
+  display: flex;
+  color: #666;
+  border-color: #ebebeb !important;
+}
+.MuiDataGrid-cell[title="Scheduled"] {
+  background-color: #dbedff;
+  color: #004594;
+}
+.MuiDataGrid-cell[title="On Time"] {
+  background-color: #d9f7be;
+  color: #0a5c1f;
+}
+.MuiDataGrid-cell[title="Delayed"] {
+  background-color: #fff6d1;
+  color: #724a03;
+}
+/* .MuiDataGrid-row--lastVisible {
+  opacity: 1 !important;
+  height: 32px !important;
+  width: 100% !important;
+} */
 /* Card code starts */
 .card-actions .text-lg {
   line-height: 1.8;

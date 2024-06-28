@@ -8,13 +8,19 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 import { dummyData, columnsByTable } from "./flight_table_constants";
+import { styled } from "@mui/system";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
+const CustomRow = styled("div")({
+  height: "32px !important",
+  // Add any other custom styles here
+});
+
 function FlightsDataGrid() {
   const [data, setData] = useState(dummyData["Flights"]);
-  const [tableName, setTableName] = React.useState("Flights");
-  const [columns, setColumns] = React.useState(columnsByTable["Flights"]);
+  const [tableName, setTableName] = useState("Flights");
+  const [columns, setColumns] = useState(columnsByTable["Flights"]);
   const [filterModel, setFilterModel] = useState({});
 
   const customColumns = React.useMemo(
@@ -76,8 +82,8 @@ function FlightsDataGrid() {
       <div className="pl-4 pr-3 pt-2 flex justify-between">
         <span className="pt-3 font-medium text-gray-900">Database</span>
         <div style={{ display: "flex", justifyContent: "end" }} className="p-2">
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl sx={{ minWidth: 120 }} size="small">
+          <Box sx={{ minWidth: 100 }}>
+            <FormControl sx={{ minWidth: 100 }} size="small">
               <InputLabel id="demo-simple-select-label" size="small">
                 Table
               </InputLabel>
@@ -87,7 +93,7 @@ function FlightsDataGrid() {
                 value={tableName}
                 label="Age"
                 onChange={handleChange}
-                sx={{ fontSize: "0.9rem" }}
+                sx={{ fontSize: "0.85rem" }}
               >
                 {names.map((name, index) => (
                   <MenuItem key={index} value={name}>
@@ -100,13 +106,18 @@ function FlightsDataGrid() {
         </div>
       </div>
       <DataGrid
-        className="mx-4"
+        className="mx-3 border-t"
         rows={data}
         columns={customColumns}
         pageSize={10}
         rowsPerPageOptions={[10]}
-        // checkboxSelection
+        disableSelectionOnClick
         onFilterModelChange={(newModel) => setFilterModel(newModel)}
+        style={{ maxHeight: "calc(100% - 60px)" }}
+        getRowHeight={() => 32} // Custom row height
+        components={{
+          Row: CustomRow,
+        }}
       />
     </div>
   );
