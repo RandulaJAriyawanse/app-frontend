@@ -359,7 +359,7 @@ const FlightChat = () => {
               <TextField
                 multiline
                 maxRows={2}
-                size={"sm"}
+                size="sm"
                 className="chat-input"
                 aria-label="Input message"
                 name="message"
@@ -368,6 +368,11 @@ const FlightChat = () => {
                 placeholder="Message"
                 InputLabelProps={{
                   shrink: false,
+                }}
+                InputProps={{
+                  classes: {
+                    input: "custom-placeholder",
+                  },
                 }}
               />
               {/* <Input

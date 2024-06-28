@@ -234,4 +234,11 @@ li {
 .card .chat-input .MuiOutlinedInput-notchedOutline {
   border: none;
 }
+.chat-input .MuiInputBase-input {
+  line-height: 178%;
+}
+.chat-input .MuiInputBase-input::placeholder {
+  color: #555;
+  opacity: 1;
+}
 /* Chat code ends */
