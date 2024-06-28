@@ -11,6 +11,7 @@ import thumbsupIcon from "@iconify/icons-lucide/thumbs-up";
 import thumbsdownIcon from "@iconify/icons-lucide/thumbs-down";
 import xIcon from "@iconify/icons-lucide/x";
 import sendHorizonalIcon from "@iconify/icons-lucide/send-horizonal";
+import TextField from "@mui/material/TextField";
 
 // import ReactMarkdown from 'react-markdown';
 
@@ -355,7 +356,9 @@ const FlightChat = () => {
               />
             </Button> */}
             <div className="grow">
-              <Input
+              <TextField
+                multiline
+                maxRows={2}
                 size={"sm"}
                 className="chat-input"
                 aria-label="Input message"
@@ -363,7 +366,19 @@ const FlightChat = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Message"
+                InputLabelProps={{
+                  shrink: false,
+                }}
               />
+              {/* <Input
+                size={"sm"}
+                className="chat-input"
+                aria-label="Input message"
+                name="message"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Message"
+              /> */}
             </div>
             <Button
               color={"primary"}
